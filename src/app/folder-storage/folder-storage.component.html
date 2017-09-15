@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" [(ngModel)]="showFilters">
+                        Показати фільтри
+                    </label>
+                </div>
+        </div>
+    </div>
+
+    <form
+          (ngSubmit)="filterData(f)" 
+          #f="ngForm"
+          [@fadeFilter]
+          *ngIf="showFilters">
+        <div class="row">
+            <div *ngFor="let item of tableColumnsObj"
+                class="col-sm-4 form-group">
+            <label for="{{item.Name}}">{{item.Display}}</label>
+            <input
+                type="text"
+                placeholder="{{item.Display}}"
+                id="{{item.Name}}"
+                class="form-control"
+                name="{{item.Name}}"
+                ngModel
+            >
+            </div>
+
+            <div class="col-sm-4 form-group submit-btn-container">
+                <button
+                    class="btn btn-success"
+                    type="submit">Фільтрувати
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="text-center">
+        <!-- items being paged -->
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <td *ngFor="let item of tableColumnsObj"
+                        (click)="sort(item.Name, $event)" class="sortable">
+                        {{item.Display}}
+                        <i #icon 
+                           class="fa fa-fw" 
+                           *ngIf="options.Sort.SortBy == item.Name"
+                           [ngClass]="{
+                                        'fa-sort-asc': options.Sort.Dir == 0,
+                                        'fa-sort-desc': options.Sort.Dir == 1
+                                      }">
+                        </i>
+                    </td>                 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data.Folders">
+                    <td>{{item.FolderNumber}}</td>
+                    <td>{{item.PageNumber}}</td>
+                    <td>{{item.Author}}</td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.CreationPlace}}</td>
+                    <td>{{item.DateCreation}}</td>
+                    <td>{{item.DateCreationNC}}</td>
+                    <td>{{item.PossibleDateCreation}}</td>
+                    <td>{{item.DateCreationCC}}</td>
+                    <td>{{item.Notes}}</td>
+                    <td>{{item.Counter}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- pager -->
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="goToPage(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="goToPage(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" 
+                [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="goToPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="goToPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="goToPage(pager.totalPages)">Last</a>
+            </li>
+        </ul>
+    </div>
+</div>

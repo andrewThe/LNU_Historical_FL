@@ -1,0 +1,13 @@
+table > thead > tr > td.sortable{
+    cursor: pointer;
+}
+
+.submit-btn-container{
+    padding-top: 25px;
+}
+
+
+input[type=checkbox]{
+    cursor: pointer;
+    outline: none;
+}
