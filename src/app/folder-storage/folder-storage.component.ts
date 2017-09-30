@@ -54,12 +54,11 @@ export class FolderStorageComponent implements OnInit {
         { Id: 2, Name: "Author", Display: "Автор документу" },
         { Id: 3, Name: "Name", Display: "Назва документу" },
         { Id: 4, Name: "CreationPlace", Display: "Мiсце створення" },
-        { Id: 5, Name: "DateCreation", Display: "Час створ." },
-        { Id: 6, Name: "DateCreationNC", Display: "Час створ. Н/С" },
-        { Id: 7, Name: "PossibleDateCreation", Display: "Можливий час ств. " },
-        { Id: 8, Name: "DateCreationCC", Display: "Час створ. С/C" },
-        { Id: 9, Name: "Notes", Display: "Примiтки" },
-        { Id: 10, Name: "Counter", Display: "Лiчильник" }
+        { Id: 5, Name: "DateCreationNC", Display: "Час створ. Н/С" },
+        { Id: 6, Name: "PossibleDateCreation", Display: "Можливий час ств. " },
+        { Id: 7, Name: "DateCreationCC", Display: "Час створ. С/C" },
+        { Id: 8, Name: "Notes", Display: "Примiтки" },
+        { Id: 9, Name: "Counter", Display: "Лiчильник" }
     ];
 
     ngOnInit() {

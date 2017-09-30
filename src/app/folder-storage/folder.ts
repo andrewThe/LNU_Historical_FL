@@ -4,7 +4,6 @@ export class Folder  {
               public Author?:string,
               public Name?:string,
               public CreationPlace?:string,
-              public DateCreation?:string,
               public DateCreationNC?:string,
               public PossibleDateCreation?:string,
               public DateCreationCC?:string,
