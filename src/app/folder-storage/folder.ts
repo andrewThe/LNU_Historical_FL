@@ -1,6 +1,6 @@
 export class Folder  {
   constructor(public FolderNumber?:string, 
-              public PageNumber?:number,
+              public PageNumber?:string,
               public Author?:string,
               public Name?:string,
               public CreationPlace?:string,
