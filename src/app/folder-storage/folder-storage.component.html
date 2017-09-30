@@ -44,14 +44,14 @@
             <thead>
                 <tr>
                     <td *ngFor="let item of tableColumnsObj"
-                        (click)="sort(item.Name, $event)" class="sortable">
+                        (click)="sort(item.Id, $event)" class="sortable">
                         {{item.Display}}
                         <i #icon 
                            class="fa fa-fw" 
-                           *ngIf="options.Sort.SortBy == item.Name"
+                           *ngIf="options.SortOptions.SortBy == item.Id"
                            [ngClass]="{
-                                        'fa-sort-asc': options.Sort.Dir == 0,
-                                        'fa-sort-desc': options.Sort.Dir == 1
+                                        'fa-sort-asc': options.SortOptions.SortDirection == 0,
+                                        'fa-sort-desc': options.SortOptions.SortDirection == 1
                                       }">
                         </i>
                     </td>                 

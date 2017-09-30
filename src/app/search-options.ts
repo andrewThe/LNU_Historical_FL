@@ -1,7 +1,7 @@
 import { SortDirection } from "./sort-direction.enum";
 
 export class SearchOptions {
-    constructor(public pageNum: number,
-                public itemsCount: number,
-                public Sort?:{SortBy:string, Dir:SortDirection}){}
+    constructor(public PageNum: number,
+                public ItemsCount: number,
+                public SortOptions?:{SortBy:number, SortDirection:SortDirection}){}
 }
