@@ -8,11 +8,14 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
 import { FolderStorageComponent } from './folder-storage/folder-storage.component';
 import { FolderService } from "./folder-storage/folder.service";
+import { ImageFolderComponent } from './image-folder/image-folder.component';
+import { ImageService } from "./image-folder/image-service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    FolderStorageComponent
+    FolderStorageComponent,
+    ImageFolderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { FolderService } from "./folder-storage/folder.service";
     BrowserAnimationsModule
   ],
   providers: [
-    FolderService
+    FolderService,
+    ImageService
   ],
   bootstrap: [AppComponent]
 })

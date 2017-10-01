@@ -58,8 +58,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of data.Folders">
-                    <td>{{item.FolderNumber}}</td>
+                <tr *ngFor="let item of data.Items">
+                    <td><a [routerLink]="['/folder', item.FolderNumber]">{{item.FolderNumber}}</a></td>
                     <td>{{item.PageNumber}}</td>
                     <td>{{item.Author}}</td>
                     <td>{{item.Name}}</td>

@@ -41,7 +41,7 @@ import { SortDirection } from "../sort-direction.enum";
 export class FolderStorageComponent implements OnInit {
     constructor(private folderService: FolderService, private renderer: Renderer2) { }
 
-    private data: { Folders: Folder[], TotalPages: number } = { Folders: [], TotalPages: 0};
+    private data: { Items: Folder[], TotalRecordsCount: number } = { Items: [], TotalRecordsCount: 0};
     private itemsOnPage: number = 10;
 
     pager: any = {};
@@ -94,7 +94,7 @@ export class FolderStorageComponent implements OnInit {
 
     goToPage(pageNum: number) {
         this.options.PageNum = pageNum;
-        if (this.options.PageNum < 1 || this.options.PageNum > this.data.TotalPages) {
+        if (this.options.PageNum < 1 || this.options.PageNum > this.data.TotalRecordsCount) {
             return;
         }
         this.loadData(this.options, this.folder);
@@ -102,8 +102,8 @@ export class FolderStorageComponent implements OnInit {
 
     private loadData(options: SearchOptions, filter?: Folder) {
         this.folderService.getFolders(options, filter).subscribe((data) => {
-            this.data = data != null ? { Folders: [], TotalPages: 0 } : data;
-            this.setPage(options, data.TotalPages);
+            this.data = data != null ? data : { Items: [], TotalRecordsCount: 0 };
+            this.setPage(options, Math.ceil(data.TotalRecordsCount / options.ItemsCount));
         });
     }
 
