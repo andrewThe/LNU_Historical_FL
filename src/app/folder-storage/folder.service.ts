@@ -5,13 +5,14 @@ import { Observable } from "rxjs/Observable";
 import { Folder } from "./folder";
 import { SearchOptions } from "../search-options";
 import { SortDirection } from "../sort-direction.enum";
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class FolderService {
   private baseUrl:string;
 
   constructor(private http: Http) {
-    this.baseUrl = 'http://localhost:63602/api/franko-letters/get-pagination'
+    this.baseUrl =  `${environment.apiUrl}/franko-letters/get-pagination`;
   }
 
   getFolders(searchOptions : SearchOptions, filter? : Folder) : Observable<{Items:Folder[], TotalRecordsCount:number}> {

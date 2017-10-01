@@ -8,12 +8,11 @@ import { ImageFolderComponent } from "./image-folder/image-folder.component";
 const appRoutes: Routes = [
   { path: '', component: FolderStorageComponent },
   { path: 'folder/:id', component: ImageFolderComponent },
-  { path: '**', component: FolderStorageComponent }
 ];
  
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,{ useHash: true })
   ],
   exports: [
     RouterModule

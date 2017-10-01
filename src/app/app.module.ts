@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -10,6 +10,7 @@ import { FolderStorageComponent } from './folder-storage/folder-storage.componen
 import { FolderService } from "./folder-storage/folder.service";
 import { ImageFolderComponent } from './image-folder/image-folder.component';
 import { ImageService } from "./image-folder/image-service";
+import { GalleriaModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImageService } from "./image-folder/image-service";
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GalleriaModule
   ],
   providers: [
     FolderService,
